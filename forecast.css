@@ -1,0 +1,67 @@
+*{
+    font-family: 'Courier New', Courier, monospace; 
+}
+#navbar{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.main{
+    width: 98%;
+    height: 350px;
+    margin: auto;
+    margin-top: 30px;
+    background: none !important;
+}
+#home{
+    margin-top: 10px;
+    height: 30px;
+    background-color: white;
+    color: inherit;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: larger;
+
+}
+#container{
+    display: flex;
+    gap: 10px;
+    width: 95%;
+    height: 300px;
+    margin: auto;
+    margin-top: 210px;
+    border-bottom-left-radius:10px ;
+    border-bottom-right-radius:10px ;
+    background: none !important;
+    
+}
+.innerDiv{
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    font-weight: bolder;
+    background-image: url('innerCloud.webp');
+    color: black;
+}
+#btn{
+    height: 50px;
+    margin: auto;
+    border: none;
+    font-size: large;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+body{
+background-image: url('img.jpg');
+background-size: cover;
+background-position:top;
+}
