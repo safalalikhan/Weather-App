@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp-Forecast</title>
+    <link rel="stylesheet" href="forecast.css" />
+  </head>
+  <body>
+    <div id="navbar">
+        <button onclick="daysForecast()" id="btn">Click for Forecast</button>
+        <div id="home"><a href="index.html">Home Page</a></div>
+
+    </div>
+
+    <div class="main">
+
+      <div id="container"></div>
+
+    </div>
+  </body>
+</html>
+<script>
+
+  function daysForecast() {
+    let arr = JSON.parse(localStorage.getItem("key"));
+    console.log(arr);
+
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${arr[0]}&lon=${arr[1]}&exclude=hourly&appid=d45a463c73052c0c6c75b0f059fba9af`;
+
+    fetch(url)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        append(res);
+        console.log("res:", res);
+      })
+      .catch(function (err) {
+        console.log("err :", err);
+      });
+
+    function append(data) {
+      let container = document.getElementById("container");
+
+      container.innerHTML = null;
+
+      data.daily.map(function (ele) {
+        let div = document.createElement("div");
+        div.setAttribute("class", "innerDiv");
+
+        let weather = document.createElement("p");
+        weather.innerText = "Weather";
+
+        let humidity = document.createElement("p");
+        humidity.innerText = `Humidity : ${ele.humidity}`;
+
+        let maxTemp = document.createElement("p");
+        maxTemp.innerText = `Maximum Temperature :${(ele.temp.max- 273.15).toFixed(2)}`;
+
+        let minTemp = document.createElement("p");
+        minTemp.innerText = `Minimum Temperature :${(ele.temp.min- 273.15).toFixed(2)}`;
+
+        let clouds = document.createElement("p");
+        clouds.innerText = `Clouds :${ele.clouds}`;
+
+        div.append(weather, humidity, minTemp, maxTemp, clouds);
+
+        container.append(div);
+      });
+    }
+  }
+</script>
