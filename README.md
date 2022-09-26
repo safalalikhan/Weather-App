@@ -15,3 +15,9 @@ The project was done as part of the assignment at Masai School.
 - Basic styling using css with html.
 - Fetching dynamic data using API.
 - Displaying fetched data using JavaScript.
+
+## Home Page :
+![Alt text](/images_readme/homepage.png?raw=true "Home Page")
+
+## Forecast Page :
+![Alt text](/images_readme/forecast.png?raw=true "Home Page")
